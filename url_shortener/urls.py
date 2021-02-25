@@ -17,10 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
 
+from api.viewsfbv import getFullUrl
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
-    path('<str:address>', RedirectView.as_view(url='https://google.kz')),
+    path('<str:short_url>/', getFullUrl)
 
 ]
+
+
